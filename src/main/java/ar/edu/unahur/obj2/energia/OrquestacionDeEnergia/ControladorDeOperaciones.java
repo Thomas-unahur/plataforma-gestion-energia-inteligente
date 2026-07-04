@@ -27,6 +27,10 @@ public class ControladorDeOperaciones {
         this.operacionesPendientes.clear();
     }
 
+    public Integer cantidadDeOperacionesRestantates(){
+        return this.operacionesPendientes.size();
+    }
+
     public void deshacerUltimaRutina() throws LimiteReservaException {
         OperacionTransferencia ultimaRutina = historial.pop();
         ultimaRutina.undo();
