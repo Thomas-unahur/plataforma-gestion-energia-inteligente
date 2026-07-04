@@ -30,7 +30,8 @@ public class Bateria {
     }
 
     public void consumirEnergia(Double cargaConsumida) throws LimiteReservaException{
-        if(cargaConsumida < -5000){
+        double nivelTrasElConsumo = this.energiaActual - cargaConsumida;
+        if(nivelTrasElConsumo < -5000){
             throw new LimiteReservaException("Se ha alcanzado el limite de uso de la bateria.");
         }
         this.energiaActual -= cargaConsumida;
@@ -44,7 +45,7 @@ public class Bateria {
     public void quitarObservador(ObservadorBateria observador) {
         this.suscriptores.remove(observador);
     }
-    
+
     private void notificarCambio() {
         for (ObservadorBateria obs : suscriptores) {
             obs.actualizar(this); 

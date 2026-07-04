@@ -8,7 +8,7 @@ public class Consumo implements OperacionTransferencia{
     private Double cantidadEnergia;
 
     public Consumo(Bateria bateria,Double consumoEnergia){
-        if (cantidadEnergia <=0){
+        if (consumoEnergia <=0){
             throw new ValorInvalidoException("El valor de energia no puede ser menor a cero.");
         }
         this.bateria = bateria;
